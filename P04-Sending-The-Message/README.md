@@ -1,7 +1,3 @@
----
-title: "Start Chatting"
-slug: sending-the-message
----
 
 1. ~~Build out a basic view~~
 1. ~~Integrate sockets~~
@@ -23,7 +19,6 @@ Remember we want it to look roughly like this wireframe:
 
 I'll give you the new handlebars and CSS so you can fast forward a bit on the styling.
 
->[action]
 > Update your `/views/index.handleabars` to the following:
 >
 ```html
@@ -71,7 +66,7 @@ I'll give you the new handlebars and CSS so you can fast forward a bit on the st
   </body>
 </html>
 ```
->
+
 > Update `/public/index.css` to the following:
 >
 ```css
@@ -267,7 +262,6 @@ $ git push
 
 Let's update your `index.js` so it doesn't just log when someone joins the chat, but instead it displays their names in the "Online Users" section.
 
->[action]
 > Replace all your code in `public/index.js` with the following code. Notice the line that uses the `.append()` function to append a new online user:
 >
 ```javascript
@@ -310,7 +304,6 @@ Below we need to wire up the `#send-chat-btn` to **emit** a `new message` event 
 
 Try coding this on your own! If you get stuck, check the solution box below:
 
-> [solution]
 > Read the comments to help understand what each event is doing:
 >
 ```javascript
@@ -362,8 +355,6 @@ Let's now create the `"new message"` listener on our server.
 
 **Hint:** remember what you did for `new user`
 
->[solution]
->
 ```javascript
 //chat.js
 module.exports = (io, socket) => {
@@ -388,7 +379,6 @@ Finally we should update the client to listen for any `new message` events from 
 
 **You got this one! Give it a shot first! You'll be adding the code to `/public/index,js`**
 
->[solution]
 > Add a `socket.on('new message')` listener to `/public/index,js`:
 >
 ```javascript

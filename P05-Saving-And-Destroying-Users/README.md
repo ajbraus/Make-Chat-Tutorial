@@ -1,7 +1,3 @@
----
-title: "Saving and Destroying Users"
-slug: saving-and-destroying-users
----
 
 1. ~~Build out a basic view~~
 1. ~~Integrate sockets~~
@@ -21,7 +17,6 @@ We'll save everything locally, meaning that all of our data will be cleared on a
 
 Let's start with updating our `app.js` to save the object `onlineUsers`.
 
->[action]
 > Update the `socket.io` code in `app.js` to the following:
 >
 ```javascript
@@ -44,7 +39,6 @@ A socket ID of course! Each socket has a unique ID that identifies it as a uniqu
 
 In the meantime, let's update `chat.js` to save those `onlineUsers`.
 
-> [action]
 > Update `/sockets/chat.js` to the following code to save the `onlineUsers`:
 >
 ```javascript
@@ -70,7 +64,6 @@ module.exports = (io, socket, onlineUsers) => {
 
 Back to your client, let's ask to see all the online users when the page loads.
 
->[action]
 > Add the `socket.emit` line right below `let currentUser` in `/public/index.js`:
 >
 ```javascript
@@ -94,7 +87,6 @@ socket.on('get online users', () => {
 
 Finally go back to your client, to show the users on the page.
 
->[action]
 > Update `/public/index.js` to include a `get online users` socket listener:
 >
 ```javascript
@@ -124,7 +116,6 @@ When a user closes out of the browser window, we want to get rid of them from ou
 - there is a [delete](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete) function...
 - There's also a [disconnect](https://socket.io/docs/client-api/#socket-disconnect) listener...
 
->[solution]
 >
 ```javascript
 ...
@@ -142,7 +133,6 @@ Now update the client to **refresh its online users** when a *"user has left"*.
 
 **Update `/public/index.js` to include a `user has left` listener:**
 
->[solution]
 >
 ```javascript
 ...
@@ -176,5 +166,4 @@ Please take a moment to rate your understanding of learning outcomes from this t
 
 # Stretch Challenge: Logout
 
->[challenge]
 > Can you create a "log out" button, that breaks your connection, removes you from `onlineUsers`, and redirects you back to the seeing the login form?

@@ -192,14 +192,14 @@ There's some more ways to emit data that we'll go in to later. These two are the
 
 Now we have to setup the client to listen for any `new user` events coming from the server. we'll use the same sort of lingo: **on** (listening) *"new user"*.
 
-Update `/public/index.js` to the following:
-
+> Update `/public/index.js` to the following:
+>
 ```javascript
 // index.js
 $(document).ready(() => {
-
+>
   const socket = io.connect();
-
+>
   $('#create-user-btn').click((e) => {
     e.preventDefault();
     let username = $('#username-input').val();
@@ -209,12 +209,12 @@ $(document).ready(() => {
       $('.username-form').remove();
     }
   });
-
+>
   //socket listeners
   socket.on('new user', (username) => {
     console.log(`✋ ${username} has joined the chat! ✋`);
   })
-
+>
 })
 ```
 

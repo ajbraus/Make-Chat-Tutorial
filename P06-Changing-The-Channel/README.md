@@ -1,7 +1,3 @@
----
-title: "Creating Channels"
-slug: change-the-channel
----
 
 1. ~~Build out a basic view~~
 1. ~~Integrate sockets~~
@@ -23,7 +19,6 @@ We're now going to create different "channels" for users to create or join. Let'
 
 So we are going to make a form with a `#new-channel-btn` and make it generate a new channel.
 
->[action]
 > Create a `new-channel-btn` handler near your other button handlers in `/public/index.js`:
 >
 ```js
@@ -42,7 +37,6 @@ $('#new-channel-btn').click( () => {
 
 Over on the server, make sure the event is registered:
 
->[action]
 > Register the event in `/sockets/chat.js`:
 >
 ```js
@@ -67,7 +61,6 @@ $ git push
 
 Just like the users, we're going to want to save each channel locally so that they persist across new clients.
 
->[action]
 > add `channels` to your `socket.io` code in `app.js`:
 >
 ```javascript
@@ -92,7 +85,6 @@ The array value that comes with the channel key will be used to save each channe
 
 Now let's have our server be `on()` for `"New Channel"`.
 
->[action]
 > Update `/sockets/chat.js` to be on for `new channel`. Remember to update the `module.exports` line to include `channels`:
 >
 ```javascript
@@ -129,7 +121,6 @@ Rooms are great, because you can emit only to that room. You will see how that w
 
 Let's update the client to display all channels that exist and mark for each user which channel they are on (which Socket.io `room` they are in).
 
->[action]
 > Update `/public/index.js` to be `on` for `new channel` and `user changed channel`:
 >
 ```javascript
@@ -177,7 +168,6 @@ Let's fix that!
 
 Let's go to the client message creation function and make sure it only goes to the right channel.
 
->[action]
 > Update `/public/index.js` the `send-chat-btn` click handler to involve channels:
 >
 ```javascript
@@ -202,7 +192,6 @@ $('#send-chat-btn').click((e) => {
 
 We should now update the `new message` listener on the server to pay attention to which user and channel the message was sent on.
 
->[action]
 > Update the `new message` listener in `/sockets/chat.js` to pay attention to channels:
 >
 ```javascript
@@ -218,7 +207,6 @@ socket.on('new message', (data) => {
 
 And finally let's update the `new message` listener on the client to respect channel.
 
->[action]
 > Update the `new message` listener in `/public/index.js` to pay attention to channels:
 >
 ```javascript
@@ -254,7 +242,6 @@ That's cause we haven't specified a default channel (General) for a user to join
 
 Let's let users change their channel by clicking on it.
 
->[action]
 > Update the top of `/public/index.js` to have an `emit` to `user changed channel`, and a click handler to allow for them to change a channel by clicking on it:
 >
 ```javascript
@@ -281,7 +268,6 @@ $(document).ready(() => {
 
 Finally, Let's add a server socket listener for `user changed channel`
 
->[action]
 > Include a server socket listener for `user changed channel` in `/sockets/chat.js`:
 >
 ```javascript
@@ -344,8 +330,6 @@ $ git push
 
 Some future enhancements you could do
 
->[challenge]
->
 1. Implementing a private message system.
 1. Using Socket.io's "channels" for multiple make chat teams to exist
 1. Using Socket.io's "rooms" to make themed chat rooms inside a channel, like "general" and "random"
