@@ -110,7 +110,6 @@ And it certainly would be next to impossible... if it weren't for a little libra
 
 [Socket.io](socket.io) is a lightweight wrapper you can use to implement websockets using the WebSocket standard.
 
->[info]
 > Remember that Socket.io has both a **server** and a **client** side to handle both the sending and receiving of websocket messages.
 
 Some types of applications that use socket.io are the following:

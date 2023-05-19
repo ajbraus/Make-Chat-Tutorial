@@ -1,7 +1,3 @@
----
-title: "I'm Ready to Get Started"
-slug: get-it-together
----
 
 1. **Build out a basic view**
     1. **Install/integrate dependencies**
@@ -14,7 +10,6 @@ slug: get-it-together
 
 You know the drill by now. But in case you've forgotten the Node essentials...
 
->[action]
 > Create your project directory. **Make sure to speicfy `app.js` as your *entry point* in the `npm init` setup!**
 >
 ```bash
@@ -25,7 +20,6 @@ $ npm init
 
 When your `package.json` arrives, do yourself a favor and make sure it has the `express`, `mongoose`, and `express-handlebars`  module dependencies installed. Also, create an `app.js` while you're at it.
 
->[action]
 > Install dependencies and create `app.js`
 >
 ```bash
@@ -62,7 +56,6 @@ Try running the server using `nodemon`. you'll notice you haven't yet created `i
 
 Let's do that.
 
->[action]
 > Set up your initial `/views`
 >
 ```bash
@@ -90,7 +83,6 @@ $ cd ..
 
 # Set up Git/GitHub
 
->[action]
 > Make your first commit
 >
 ```bash
@@ -101,7 +93,6 @@ $ git commit -m 'project init'
 
 Now go to GitHub and create a public repository called `Make-Chat`, and now associate it as a remote for your local git project and then push to it.
 
->[action]
 > Push it!
 >
 ```bash

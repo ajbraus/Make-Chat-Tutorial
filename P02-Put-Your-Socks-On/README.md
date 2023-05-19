@@ -1,7 +1,3 @@
----
-title: "Connection Inspection"
-slug: put-your-socks-on
----
 
 1. ~~Build out a basic view~~
 1. **Integrate sockets**
@@ -19,7 +15,6 @@ Let's just jump right in and get Socket.io working.
 
 Let's import socket.io in our `app.js`, and then open a connection and log that the connection opened.
 
->[action]
 > Replace your current `app.js` code with the following:
 >
 ```js
@@ -53,7 +48,6 @@ You have now successfully set up your backend for incoming socket connections!
 
 Remember that we use Socket.io on both the server and client, so let's update our front end accordingly.
 
->[action]
 > Create your `/public` folder with an `index.js`.
 >
 ```bash
@@ -77,7 +71,6 @@ app.use('/public', express.static('public'))
 
 The `socket.io` npm module automatically sets up a `/socket.io/socket.io.js` path in your project to the `socket.io` frontend JavaScript. So we can update our handlebars to require the client-side socket.io script.
 
->[action]
 > Update your `/views/index.handlebars` file to the following:
 >
 ```html
@@ -98,7 +91,6 @@ The `socket.io` npm module automatically sets up a `/socket.io/socket.io.js` pat
 
 You may notice we're also including `jQuery` to make the DOM manipulation a little easier. Feel free not to include it and use your vanilla `js` powers you've learned in other tutorials. For this tutorial though, we'll be using `jQuery`.
 
->[action]
 >Finally add this code to `index.js`
 >
 ```js

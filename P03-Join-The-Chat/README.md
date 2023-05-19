@@ -1,7 +1,3 @@
----
-title: "Give Users an Identity"
-slug: join-the-chat
----
 
 1. ~~Build out a basic view~~
 1. ~~Integrate sockets~~
@@ -18,7 +14,6 @@ slug: join-the-chat
 
 Before we move on to our next feature, let's make a separate file for our socket listeners. This will reduce the socket clutter in our `app.js`
 
->[action]
 > make a `/sockets` folder with a `chat` file in it
 >
 ```bash
@@ -28,7 +23,6 @@ $ touch sockets/chat.js
 
 Update `app.js` to require the new file. We're going to pass the socket server (`io`) and the socket itself (`socket`) into our file.
 
->[action]
 > Update the body of `io.on(...)` in `app.js` to the following:
 >
 ```javascript
@@ -53,7 +47,6 @@ module.exports = (io, socket) => {
 
 Let's update our view to have a username form.
 
->[action]
 > Update `/views/index.handlebars` to the following:
 >
 ```html
@@ -81,7 +74,6 @@ Let's update our view to have a username form.
 
 I'll be a pal and give you some CSS to use too. Remember to make your `public/index.css` first and require it in your `<head></head>` tag.
 
->[action]
 > Create `/public/index.css`
 >
 ```bash
@@ -128,7 +120,6 @@ Reload the page to make sure your username form looks good to go.
 
 Let's add some client script to send the new username to the server. Notice that we are not going to use an HTTP request, instead we can use a *socket event* on the connection we already have created! We'll create a new event called `new user`. On the server we'll later create a listener to listen for events named this.
 
->[action]
 > Update `/public/index.js` to the following:
 >
 ```javascript
@@ -180,7 +171,6 @@ We have successfully sent data from the client to the server with sockets.
 
 Now let's send data from the server to all clients. The server can **emit** as well.
 
->[action]
 > Update the body of `socket.on(...)` in `/sockets/chat.js` to the following:
 >
 ```javascript
@@ -202,7 +192,6 @@ There's some more ways to emit data that we'll go in to later. These two are the
 
 Now we have to setup the client to listen for any `new user` events coming from the server. we'll use the same sort of lingo: **on** (listening) *"new user"*.
 
->[action]
 > Update `/public/index.js` to the following:
 >
 ```javascript
